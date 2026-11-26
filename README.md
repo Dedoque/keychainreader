@@ -24,13 +24,13 @@ A zero-leakage Model Context Protocol (MCP) server for **macOS Keychain** and **
 ### Run directly from Git via `uvx`
 
 ```bash
-uvx --from git+https://github.com keychainreader
+uvx --python 3.12 --from git+https://github.com/Dedoque/keychainreader.git keychainreader
 ```
 
 ### Run from a local clone
 
 ```bash
-git clone https://github.com.git
+git clone https://github.com/Dedoque/keychainreader.git
 cd keychainreader
 uv run keychainreader
 ```
@@ -42,22 +42,24 @@ uv run keychainreader
 Add via CLI:
 
 ```bash
-opencode mcp add keychainreader --global -- uvx --from git+https://github.com keychainreader
+opencode mcp add keychainreader --global -- uvx --python 3.12 --from git+https://github.com/Dedoque/keychainreader.git keychainreader
 ```
 
 Or add manually to `~/.config/opencode/opencode.json`:
 
 ```json
 {
-  "$schema": "https://opencode.ai",
+  "$schema": "https://opencode.ai/config.json",
   "mcp": {
     "servers": {
       "keychainreader": {
         "type": "local",
         "command": [
           "uvx",
+          "--python",
+          "3.12",
           "--from",
-          "git+https://github.com",
+          "git+https://github.com/Dedoque/keychainreader.git",
           "keychainreader"
         ]
       }
@@ -74,8 +76,10 @@ Or add manually to `~/.config/opencode/opencode.json`:
     "keychainreader": {
       "command": "uvx",
       "args": [
+        "--python",
+        "3.12",
         "--from",
-        "git+https://github.com",
+        "git+https://github.com/Dedoque/keychainreader.git",
         "keychainreader"
       ]
     }
